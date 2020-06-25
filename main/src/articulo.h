@@ -12,7 +12,7 @@ typedef struct
 {
 	int id;
 	char articulo[128];
-	float precio;
+	int precio;
 	char medida[51];
 	int rubroId;
 
@@ -37,4 +37,6 @@ int articulo_getMedida(eArticulo* this,char* medida);
 int articulo_setRubroId(eArticulo* this,int idRubro);
 int articulo_getRubroId(eArticulo* this,int* idRubro);
 
+int controller_precioMasCien(void* pPrecio);
+int controller_cantCuidadoRopa(void* pIdRubro);
 #endif /* ARTICULO_H_ */

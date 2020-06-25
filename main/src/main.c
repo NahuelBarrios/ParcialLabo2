@@ -22,9 +22,10 @@ int main(void)
 	int option = 0;
 	char path[51];
 
-	while(option != 6)
+	while(option != 7)
 	{
-		printf("\n1-Cargar un archivo y abrirlo\n2-Ordenar\n3-Listar\n4-Realizar descuento\n5-Save datos\n6-Salir");
+		printf("\n1-Cargar un archivo y abrirlo\n2-Ordenar\n3-Listar\n4-Realizar descuento\n5-Save datos\n6-Informe\n7-Salir");
+		fflush(stdin);
 		utn_getInt(&option,"\nElija una opcion: " ,"\nError\n",1,10,3);
 
 		switch(option)
@@ -62,6 +63,12 @@ int main(void)
 				printf("\nNo se guardo el archivo con exito\n");
 			break;
 		case 6:
+			if(controller_informe(pArrayArticulos)==0)
+				printf("\nSe realizo el informe con exito\n");
+			else
+				printf("\nNo se realizo el informe con exito\n");
+			break;
+		case 7:
 			printf("\nSalió.\n");
 			break;
 		default: printf("\nIngrese un valor del menú\n");

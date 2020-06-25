@@ -154,3 +154,34 @@ int articulo_getRubroId(eArticulo* this,int* idRubro)
 	}
 	return retorno;
 }
+//*******************************************************************************************************
+
+int controller_precioMasCien(void* pPrecio)
+{
+	int retorno = 0;
+	eArticulo* articulo;
+
+	if (pPrecio != NULL)
+	{
+		articulo = (eArticulo*)pPrecio;
+
+		if(articulo->precio>100)
+		retorno = 1;
+	}
+	return retorno;
+}
+
+int controller_cantCuidadoRopa(void* pIdRubro)
+{
+	int retorno = 0;
+	eArticulo* articulo;
+
+	if (pIdRubro != NULL)
+	{
+		articulo = (eArticulo*)pIdRubro;
+
+		if(articulo->rubroId == 1)
+		retorno = 1;
+	}
+	return retorno;
+}

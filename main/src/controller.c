@@ -219,3 +219,22 @@ int controller_saveData(char* path,LinkedList* pArrayListArticulo)
 	fclose(pArchivo);
 	return retorno;
 }
+
+
+int controller_informe(LinkedList* pArrayListArticulo)
+{
+	int retorno = -1;
+	int cantPrecioMayor100;
+	int cantRubroCuidadoDeRopa;
+
+	if(pArrayListArticulo != NULL)
+	{
+		cantPrecioMayor100 = ll_count(pArrayListArticulo,controller_precioMasCien);
+		cantRubroCuidadoDeRopa = ll_count(pArrayListArticulo,controller_cantCuidadoRopa);
+
+		printf("\nCantidad de Artículos cuyo precio sea mayor a $100: %d\nCantidad de Artículos del Rubro 1 – CUIDADO DE ROPA: %d\n",cantPrecioMayor100,cantRubroCuidadoDeRopa);
+		retorno = 0;
+	}
+
+	return retorno;
+}

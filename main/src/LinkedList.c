@@ -436,31 +436,18 @@ void* ll_pop(LinkedList* this,int index)
     void* returnAux = NULL;
     int longitud;
     Node* pNodo = NULL;
-    Node* pNodoAuxPrev = NULL;
 
     longitud = ll_len(this);
 
     if(this != NULL && index>=0 && index<longitud)
     {
-    	pNodo = getNode(this,index);
+    	pNodo = ll_get(this,index);
 
     	if(pNodo != NULL)
     	{
-    		if(index == 0)
-    		{
-    			returnAux = pNodo->pElement;
-    			this->pFirstNode = pNodo->pNextNode;
-    			this->size--;
-    		}
-    		else
-    		{
-    			returnAux = pNodo->pElement;
-    			pNodoAuxPrev = getNode(this,index-1);
-    			pNodoAuxPrev->pNextNode = pNodo->pNextNode;
-    			this->size--;
-    		}
+    		ll_remove(this, index);
+    		returnAux = pNodo->pElement;
     	}
-
     }
 
     return returnAux;
@@ -505,33 +492,23 @@ int ll_contains(LinkedList* this, void* pElement)
 */
 int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
-    int returnAux = -1;
-    int i;
-    int longitudThis2;
+	int returnAux = -1;
+	    int i;
+	    void* pElement; //puntero a pElement donded voy a guardar lo que obtengo
 
-    if(this != NULL && this2 != NULL)
-    {
-    	longitudThis2 = ll_len(this2);
-
-        if(longitudThis2 == 0)
-        {
-        	returnAux = 0;
-        }
-        for(i=0;i<longitudThis2;i++)
-        {
-        	if(ll_contains(this,ll_get(this2,i))==1)
-        	{
-        		returnAux = 1;
-        	}
-        	else
-        	{
-        		returnAux = 0;
-        		break;
-        	}
-        }
-    }
-
-    return returnAux;
+	    if(this != NULL && this2 != NULL)//verifico si tanto la lista 1 como la lista 2 contienen elementos
+	    {
+	    	returnAux = 1;//retorno 1 si los elementos de la lista2 estan contenidos en la lista 1
+	    	for(i=0;i<ll_len(this2);i++)//recorro el largo de la lista 2
+	    	{
+	    		pElement = ll_get(this2,i); //le asigno al elemento la ubicacion de un elemento en la lista dos
+	    		if(!ll_contains(this,pElement))//si la lista 1 no contiene elementos
+	    		{
+	    			returnAux = 0;//los elementos de la lista dos no estan contenidos en la lista uno
+	    		}
+	    	}
+	    }
+	    return returnAux;//retorno -1 si el puntero a la lista es igual a NULL o vacia
 }
 
 /** \brief Crea y retorna una nueva lista con los elementos indicados
@@ -662,10 +639,12 @@ int ll_map(LinkedList* this, int (*pFunc)(void*))
 {
     int returnAux =-1;
 	int i; //variable control
+	int longitud;
 	if(this!=NULL && pFunc!=NULL) //si la lista contiene elementos y si la funcion criterio no es ta vacia
 	{
+		longitud = ll_len(this);
 		returnAux = 0;
-		for(i=0; i<this->size; i++)//recorro el largo al que apunta la lista
+		for(i=0; i<longitud; i++)//recorro el largo al que apunta la lista
 		{
 			pFunc(ll_get(this,i));//funcion criterio que devuelve la posicion que tiene un nodo en la lista
 		}
@@ -674,3 +653,20 @@ int ll_map(LinkedList* this, int (*pFunc)(void*))
 
 }
 
+
+int ll_count(LinkedList* this,int (*fn)(void*))
+{
+    int retorno = -1;
+    int i;
+
+    if(this != NULL && fn != NULL)//verifico que la lista y la funcion no esten vacias
+    {
+        retorno = 0;
+
+        for(i=0;i<ll_len(this);i++) // recorro el largo de la lista
+        {
+            retorno += fn(ll_get(this, i)); // pFunc devuelve 1 cuando hay que contar y lo acumula
+        }
+    }
+    return retorno;
+}

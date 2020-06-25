@@ -178,3 +178,173 @@ gcc -o main.exe "src\\LinkedList.o" "src\\articulo.o" "src\\controller.o" "src\\
 Info: Internal Builder is used for build
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
 gcc -o main.exe "src\\LinkedList.o" "src\\articulo.o" "src\\controller.o" "src\\main.o" "src\\parser.o" "src\\utn.o" 
+18:05:41 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
+gcc -o main.exe "src\\LinkedList.o" "src\\articulo.o" "src\\controller.o" "src\\main.o" "src\\parser.o" "src\\utn.o" 
+18:46:57 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\articulo.o" "..\\src\\articulo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+..\src\controller.c: In function 'controller_informe':
+..\src\controller.c:231:24: error: too few arguments to function 'll_count'
+  231 |   cantPrecioMayor100 = ll_count();
+      |                        ^~~~~~~~
+In file included from ..\src\controller.c:11:
+..\src\linkedlist.h:44:5: note: declared here
+   44 | int ll_count(LinkedList* this,int (*fn)(void*));
+      |     ^~~~~~~~
+..\src\controller.c:232:28: error: too few arguments to function 'll_count'
+  232 |   cantRubroCuidadoDeRopa = ll_count();
+      |                            ^~~~~~~~
+In file included from ..\src\controller.c:11:
+..\src\linkedlist.h:44:5: note: declared here
+   44 | int ll_count(LinkedList* this,int (*fn)(void*));
+      |     ^~~~~~~~
+..\src\controller.c:227:6: warning: variable 'cantRubroCuidadoDeRopa' set but not used [-Wunused-but-set-variable]
+  227 |  int cantRubroCuidadoDeRopa=0;
+      |      ^~~~~~~~~~~~~~~~~~~~~~
+..\src\controller.c:226:6: warning: variable 'cantPrecioMayor100' set but not used [-Wunused-but-set-variable]
+  226 |  int cantPrecioMayor100=0;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\controller.c: In function 'controller_precioMasCien':
+..\src\controller.c:248:10: warning: dereferencing 'void *' pointer
+  248 |   cant= p->precio;
+      |          ^~
+..\src\controller.c:248:10: error: request for member 'precio' in something not a structure or union
+..\src\controller.c:242:6: warning: variable 'cant' set but not used [-Wunused-but-set-variable]
+  242 |  int cant;
+      |      ^~~~
+..\src\controller.c:241:13: warning: unused variable 'articulo' [-Wunused-variable]
+  241 |  eArticulo* articulo;
+      |             ^~~~~~~~
+18:52:54 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+..\src\controller.c: In function 'controller_informe':
+..\src\controller.c:231:52: error: 'controller_precioMasCien' undeclared (first use in this function)
+  231 |   cantPrecioMayor100 = ll_count(pArrayListArticulo,controller_precioMasCien);
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+..\src\controller.c:231:52: note: each undeclared identifier is reported only once for each function it appears in
+..\src\controller.c:232:56: error: 'controller_cantCuidadoRopa' undeclared (first use in this function)
+  232 |   cantRubroCuidadoDeRopa = ll_count(pArrayListArticulo,controller_cantCuidadoRopa);
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\controller.c:227:6: warning: variable 'cantRubroCuidadoDeRopa' set but not used [-Wunused-but-set-variable]
+  227 |  int cantRubroCuidadoDeRopa=0;
+      |      ^~~~~~~~~~~~~~~~~~~~~~
+..\src\controller.c:226:6: warning: variable 'cantPrecioMayor100' set but not used [-Wunused-but-set-variable]
+  226 |  int cantPrecioMayor100=0;
+      |      ^~~~~~~~~~~~~~~~~~
+..\src\controller.c: In function 'controller_precioMasCien':
+..\src\controller.c:242:6: warning: unused variable 'cant' [-Wunused-variable]
+  242 |  int cant;
+      |      ^~~~
+..\src\controller.c: In function 'controller_cantCuidadoRopa':
+..\src\controller.c:258:6: warning: unused variable 'cant' [-Wunused-variable]
+  258 |  int cant;
+      |      ^~~~
+18:54:40 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\LinkedList.o" "..\\src\\LinkedList.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\main.o" "..\\src\\main.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+..\src\controller.c: In function 'controller_informe':
+..\src\controller.c:231:52: error: 'controller_precioMasCien' undeclared (first use in this function)
+  231 |   cantPrecioMayor100 = ll_count(pArrayListArticulo,controller_precioMasCien);
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+..\src\controller.c:231:52: note: each undeclared identifier is reported only once for each function it appears in
+..\src\controller.c:232:56: error: 'controller_cantCuidadoRopa' undeclared (first use in this function)
+  232 |   cantRubroCuidadoDeRopa = ll_count(pArrayListArticulo,controller_cantCuidadoRopa);
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+..\src\controller.c: In function 'controller_precioMasCien':
+..\src\controller.c:244:6: warning: unused variable 'cant' [-Wunused-variable]
+  244 |  int cant;
+      |      ^~~~
+..\src\controller.c: In function 'controller_cantCuidadoRopa':
+..\src\controller.c:260:6: warning: unused variable 'cant' [-Wunused-variable]
+  260 |  int cant;
+      |      ^~~~
+18:55:22 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\main.o" "..\\src\\main.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+..\src\controller.c: In function 'controller_informe':
+..\src\controller.c:231:52: error: 'controller_precioMasCien' undeclared (first use in this function)
+  231 |   cantPrecioMayor100 = ll_count(pArrayListArticulo,controller_precioMasCien);
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+..\src\controller.c:231:52: note: each undeclared identifier is reported only once for each function it appears in
+..\src\controller.c:232:56: error: 'controller_cantCuidadoRopa' undeclared (first use in this function)
+  232 |   cantRubroCuidadoDeRopa = ll_count(pArrayListArticulo,controller_cantCuidadoRopa);
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+18:55:48 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+..\src\controller.c: In function 'controller_informe':
+..\src\controller.c:231:52: error: 'controller_precioMasCien' undeclared (first use in this function)
+  231 |   cantPrecioMayor100 = ll_count(pArrayListArticulo,controller_precioMasCien);
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+..\src\controller.c:231:52: note: each undeclared identifier is reported only once for each function it appears in
+..\src\controller.c:232:56: error: 'controller_cantCuidadoRopa' undeclared (first use in this function)
+  232 |   cantRubroCuidadoDeRopa = ll_count(pArrayListArticulo,controller_cantCuidadoRopa);
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+18:56:19 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+..\src\controller.c: In function 'controller_informe':
+..\src\controller.c:231:52: error: 'controller_precioMasCien' undeclared (first use in this function)
+  231 |   cantPrecioMayor100 = ll_count(pArrayListArticulo,controller_precioMasCien);
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~
+..\src\controller.c:231:52: note: each undeclared identifier is reported only once for each function it appears in
+..\src\controller.c:232:56: error: 'controller_cantCuidadoRopa' undeclared (first use in this function)
+  232 |   cantRubroCuidadoDeRopa = ll_count(pArrayListArticulo,controller_cantCuidadoRopa);
+      |                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+18:57:37 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\main.o" "..\\src\\main.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\articulo.o" "..\\src\\articulo.c" 
+gcc -o main.exe "src\\LinkedList.o" "src\\articulo.o" "src\\controller.o" "src\\main.o" "src\\parser.o" "src\\utn.o" 
+Info: Nothing to build for main
+18:58:58 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\articulo.o" "..\\src\\articulo.c" 
+gcc -o main.exe "src\\LinkedList.o" "src\\articulo.o" "src\\controller.o" "src\\main.o" "src\\parser.o" "src\\utn.o" 
+Info: Nothing to build for main
+19:02:35 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\main.o" "..\\src\\main.c" 
+gcc -o main.exe "src\\LinkedList.o" "src\\articulo.o" "src\\controller.o" "src\\main.o" "src\\parser.o" "src\\utn.o" 
+19:11:32 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\articulo.o" "..\\src\\articulo.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\parser.o" "..\\src\\parser.c" 
+gcc -o main.exe "src\\LinkedList.o" "src\\articulo.o" "src\\controller.o" "src\\main.o" "src\\parser.o" "src\\utn.o" 
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+19:22:08 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\controller.o" "..\\src\\controller.c" 
+gcc -o main.exe "src\\LinkedList.o" "src\\articulo.o" "src\\controller.o" "src\\main.o" "src\\parser.o" "src\\utn.o" 
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+19:23:36 **** Incremental Build of configuration Debug for project main ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\main.o" "..\\src\\main.c" 
+gcc -o main.exe "src\\LinkedList.o" "src\\articulo.o" "src\\controller.o" "src\\main.o" "src\\parser.o" "src\\utn.o" 
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
+Info: Nothing to build for main
